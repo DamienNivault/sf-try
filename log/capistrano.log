@@ -1,0 +1,159 @@
+# Logfile created on 2017-12-06 14:50:49 +0100 by logger.rb/56815
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-12-06 14:50:49 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [332a917b] Running /usr/bin/env mkdir -p /tmp as deploy@165.227.145.161
+ DEBUG [332a917b] Command: /usr/bin/env mkdir -p /tmp
+  INFO [332a917b] Finished in 11.383 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-sf-try-production-damiennivault.sh 0.0%
+  INFO Uploading /tmp/git-ssh-sf-try-production-damiennivault.sh 100.0%
+  INFO [00ec422d] Running /usr/bin/env chmod 700 /tmp/git-ssh-sf-try-production-damiennivault.sh as deploy@165.227.145.161
+ DEBUG [00ec422d] Command: /usr/bin/env chmod 700 /tmp/git-ssh-sf-try-production-damiennivault.sh
+  INFO [00ec422d] Finished in 0.426 seconds with exit status 0 (successful).
+  INFO [1e16532e] Running /usr/bin/env git ls-remote https://github.com/LindowN/sf-try HEAD as deploy@165.227.145.161
+ DEBUG [1e16532e] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git ls-remote https://github.com/LindowN/sf-try HEAD )
+ DEBUG [1e16532e] 	20e8c6ce7d6cc3099803268a31e41aea8af1a444	HEAD
+  INFO [1e16532e] Finished in 1.906 seconds with exit status 0 (successful).
+  INFO [980ccc6a] Running /usr/bin/env mkdir -p /var/www/sf-try/shared /var/www/sf-try/releases as deploy@165.227.145.161
+ DEBUG [980ccc6a] Command: /usr/bin/env mkdir -p /var/www/sf-try/shared /var/www/sf-try/releases
+  INFO [980ccc6a] Finished in 0.192 seconds with exit status 0 (successful).
+ DEBUG [4e54c639] Running [ -f /var/www/sf-try/current/REVISION ] as deploy@165.227.145.161
+ DEBUG [4e54c639] Command: [ -f /var/www/sf-try/current/REVISION ]
+ DEBUG [4e54c639] Finished in 0.202 seconds with exit status 1 (failed).
+ DEBUG [93ccab81] Running [ -f /var/www/sf-try/repo/HEAD ] as deploy@165.227.145.161
+ DEBUG [93ccab81] Command: [ -f /var/www/sf-try/repo/HEAD ]
+ DEBUG [93ccab81] Finished in 0.436 seconds with exit status 1 (failed).
+ DEBUG [98bf4f59] Running if test ! -d /var/www/sf-try; then echo "Directory does not exist '/var/www/sf-try'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [98bf4f59] Command: if test ! -d /var/www/sf-try; then echo "Directory does not exist '/var/www/sf-try'" 1>&2; false; fi
+ DEBUG [98bf4f59] Finished in 0.338 seconds with exit status 0 (successful).
+  INFO [fae5bcda] Running /usr/bin/env git clone --mirror https://github.com/LindowN/sf-try /var/www/sf-try/repo as deploy@165.227.145.161
+ DEBUG [fae5bcda] Command: cd /var/www/sf-try && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git clone --mirror https://github.com/LindowN/sf-try /var/www/sf-try/repo )
+ DEBUG [fae5bcda] 	Cloning into bare repository '/var/www/sf-try/repo'...
+  INFO [fae5bcda] Finished in 1.377 seconds with exit status 0 (successful).
+ DEBUG [c1422fb0] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [c1422fb0] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [c1422fb0] Finished in 0.252 seconds with exit status 0 (successful).
+  INFO [22d8078f] Running /usr/bin/env git remote set-url origin https://github.com/LindowN/sf-try as deploy@165.227.145.161
+ DEBUG [22d8078f] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git remote set-url origin https://github.com/LindowN/sf-try )
+  INFO [22d8078f] Finished in 0.337 seconds with exit status 0 (successful).
+  INFO [56d4807f] Running /usr/bin/env git remote update --prune as deploy@165.227.145.161
+ DEBUG [56d4807f] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [56d4807f] 	Fetching origin
+  INFO [56d4807f] Finished in 1.041 seconds with exit status 0 (successful).
+ DEBUG [854286dc] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [854286dc] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [854286dc] Finished in 0.214 seconds with exit status 0 (successful).
+  INFO [aac146b1] Running /usr/bin/env mkdir -p /var/www/sf-try/releases/20171206135104 as deploy@165.227.145.161
+ DEBUG [aac146b1] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env mkdir -p /var/www/sf-try/releases/20171206135104 )
+  INFO [aac146b1] Finished in 0.387 seconds with exit status 0 (successful).
+  INFO [d8b0e6eb] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sf-try/releases/20171206135104 as deploy@165.227.145.161
+ DEBUG [d8b0e6eb] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sf-try/releases/20171206135104 )
+  INFO [d8b0e6eb] Finished in 0.231 seconds with exit status 0 (successful).
+ DEBUG [3dcf1882] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [3dcf1882] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [3dcf1882] Finished in 0.257 seconds with exit status 0 (successful).
+ DEBUG [3382da15] Running /usr/bin/env git rev-list --max-count=1 master as deploy@165.227.145.161
+ DEBUG [3382da15] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [3382da15] 	20e8c6ce7d6cc3099803268a31e41aea8af1a444
+ DEBUG [3382da15] Finished in 0.272 seconds with exit status 0 (successful).
+ DEBUG [ba2027cf] Running if test ! -d /var/www/sf-try/releases/20171206135104; then echo "Directory does not exist '/var/www/sf-try/releases/20171206135104'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [ba2027cf] Command: if test ! -d /var/www/sf-try/releases/20171206135104; then echo "Directory does not exist '/var/www/sf-try/releases/20171206135104'" 1>&2; false; fi
+ DEBUG [ba2027cf] Finished in 0.541 seconds with exit status 0 (successful).
+  INFO [77063ba8] Running /usr/bin/env echo "20e8c6ce7d6cc3099803268a31e41aea8af1a444" >> REVISION as deploy@165.227.145.161
+ DEBUG [77063ba8] Command: cd /var/www/sf-try/releases/20171206135104 && /usr/bin/env echo "20e8c6ce7d6cc3099803268a31e41aea8af1a444" >> REVISION
+  INFO [77063ba8] Finished in 0.275 seconds with exit status 0 (successful).
+  INFO [81b23d96] Running /usr/bin/env ln -s /var/www/sf-try/releases/20171206135104 /var/www/sf-try/releases/current as deploy@165.227.145.161
+ DEBUG [81b23d96] Command: /usr/bin/env ln -s /var/www/sf-try/releases/20171206135104 /var/www/sf-try/releases/current
+  INFO [81b23d96] Finished in 0.268 seconds with exit status 0 (successful).
+  INFO [9f484fdf] Running /usr/bin/env mv /var/www/sf-try/releases/current /var/www/sf-try as deploy@165.227.145.161
+ DEBUG [9f484fdf] Command: /usr/bin/env mv /var/www/sf-try/releases/current /var/www/sf-try
+  INFO [9f484fdf] Finished in 0.267 seconds with exit status 0 (successful).
+ DEBUG [ac865de8] Running /usr/bin/env ls -x /var/www/sf-try/releases as deploy@165.227.145.161
+ DEBUG [ac865de8] Command: /usr/bin/env ls -x /var/www/sf-try/releases
+ DEBUG [ac865de8] 	20171206135104
+ DEBUG [ac865de8] Finished in 0.308 seconds with exit status 0 (successful).
+ DEBUG [068db345] Running if test ! -d /var/www/sf-try/releases; then echo "Directory does not exist '/var/www/sf-try/releases'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [068db345] Command: if test ! -d /var/www/sf-try/releases; then echo "Directory does not exist '/var/www/sf-try/releases'" 1>&2; false; fi
+ DEBUG [068db345] Finished in 0.340 seconds with exit status 0 (successful).
+  INFO [293d3de6] Running /usr/bin/env echo "Branch master (at 20e8c6ce7d6cc3099803268a31e41aea8af1a444) deployed as release 20171206135104 by damiennivault" >> /var/www/sf-try/revisions.log as deploy@165.227.145.161
+ DEBUG [293d3de6] Command: cd /var/www/sf-try/releases && /usr/bin/env echo "Branch master (at 20e8c6ce7d6cc3099803268a31e41aea8af1a444) deployed as release 20171206135104 by damiennivault" >> /var/www/sf-try/revisions.log
+  INFO [293d3de6] Finished in 0.164 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-12-06 14:56:18 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e94a2db5] Running /usr/bin/env mkdir -p /tmp as deploy@165.227.145.161
+ DEBUG [e94a2db5] Command: /usr/bin/env mkdir -p /tmp
+  INFO [e94a2db5] Finished in 3.051 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-sf-try-production-damiennivault.sh 0.0%
+  INFO Uploading /tmp/git-ssh-sf-try-production-damiennivault.sh 100.0%
+  INFO [38299920] Running /usr/bin/env chmod 700 /tmp/git-ssh-sf-try-production-damiennivault.sh as deploy@165.227.145.161
+ DEBUG [38299920] Command: /usr/bin/env chmod 700 /tmp/git-ssh-sf-try-production-damiennivault.sh
+  INFO [38299920] Finished in 0.658 seconds with exit status 0 (successful).
+  INFO [ec8d2f41] Running /usr/bin/env git ls-remote https://github.com/LindowN/sf-try HEAD as deploy@165.227.145.161
+ DEBUG [ec8d2f41] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git ls-remote https://github.com/LindowN/sf-try HEAD )
+ DEBUG [ec8d2f41] 	f5ec64f48f5db73a6220a87d44be5939262ae580	HEAD
+  INFO [ec8d2f41] Finished in 2.002 seconds with exit status 0 (successful).
+  INFO [ceedfd67] Running /usr/bin/env mkdir -p /var/www/sf-try/shared /var/www/sf-try/releases as deploy@165.227.145.161
+ DEBUG [ceedfd67] Command: /usr/bin/env mkdir -p /var/www/sf-try/shared /var/www/sf-try/releases
+  INFO [ceedfd67] Finished in 0.298 seconds with exit status 0 (successful).
+ DEBUG [503d5cb8] Running [ -f /var/www/sf-try/current/REVISION ] as deploy@165.227.145.161
+ DEBUG [503d5cb8] Command: [ -f /var/www/sf-try/current/REVISION ]
+ DEBUG [503d5cb8] Finished in 0.149 seconds with exit status 1 (failed).
+ DEBUG [b26b2583] Running [ -f /var/www/sf-try/repo/HEAD ] as deploy@165.227.145.161
+ DEBUG [b26b2583] Command: [ -f /var/www/sf-try/repo/HEAD ]
+ DEBUG [b26b2583] Finished in 0.278 seconds with exit status 1 (failed).
+ DEBUG [ead9b0fc] Running if test ! -d /var/www/sf-try; then echo "Directory does not exist '/var/www/sf-try'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [ead9b0fc] Command: if test ! -d /var/www/sf-try; then echo "Directory does not exist '/var/www/sf-try'" 1>&2; false; fi
+ DEBUG [ead9b0fc] Finished in 0.365 seconds with exit status 0 (successful).
+  INFO [e2e375f1] Running /usr/bin/env git clone --mirror https://github.com/LindowN/sf-try /var/www/sf-try/repo as deploy@165.227.145.161
+ DEBUG [e2e375f1] Command: cd /var/www/sf-try && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git clone --mirror https://github.com/LindowN/sf-try /var/www/sf-try/repo )
+ DEBUG [e2e375f1] 	Cloning into bare repository '/var/www/sf-try/repo'...
+  INFO [e2e375f1] Finished in 1.959 seconds with exit status 0 (successful).
+ DEBUG [3c3f5f58] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [3c3f5f58] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [3c3f5f58] Finished in 0.262 seconds with exit status 0 (successful).
+  INFO [42d27fbd] Running /usr/bin/env git remote set-url origin https://github.com/LindowN/sf-try as deploy@165.227.145.161
+ DEBUG [42d27fbd] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git remote set-url origin https://github.com/LindowN/sf-try )
+  INFO [42d27fbd] Finished in 0.415 seconds with exit status 0 (successful).
+  INFO [75ce7f1c] Running /usr/bin/env git remote update --prune as deploy@165.227.145.161
+ DEBUG [75ce7f1c] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [75ce7f1c] 	Fetching origin
+  INFO [75ce7f1c] Finished in 2.276 seconds with exit status 0 (successful).
+ DEBUG [0039af17] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [0039af17] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [0039af17] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [095b8681] Running /usr/bin/env mkdir -p /var/www/sf-try/releases/20171206135625 as deploy@165.227.145.161
+ DEBUG [095b8681] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env mkdir -p /var/www/sf-try/releases/20171206135625 )
+  INFO [095b8681] Finished in 0.133 seconds with exit status 0 (successful).
+  INFO [c7cb7d02] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sf-try/releases/20171206135625 as deploy@165.227.145.161
+ DEBUG [c7cb7d02] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sf-try/releases/20171206135625 )
+  INFO [c7cb7d02] Finished in 0.286 seconds with exit status 0 (successful).
+ DEBUG [e58de6a1] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [e58de6a1] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [e58de6a1] Finished in 0.251 seconds with exit status 0 (successful).
+ DEBUG [74883bfb] Running /usr/bin/env git rev-list --max-count=1 master as deploy@165.227.145.161
+ DEBUG [74883bfb] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sf-try-production-damiennivault.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [74883bfb] 	f5ec64f48f5db73a6220a87d44be5939262ae580
+ DEBUG [74883bfb] Finished in 0.412 seconds with exit status 0 (successful).
+ DEBUG [d8ccc681] Running if test ! -d /var/www/sf-try/releases/20171206135625; then echo "Directory does not exist '/var/www/sf-try/releases/20171206135625'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [d8ccc681] Command: if test ! -d /var/www/sf-try/releases/20171206135625; then echo "Directory does not exist '/var/www/sf-try/releases/20171206135625'" 1>&2; false; fi
+ DEBUG [d8ccc681] Finished in 0.393 seconds with exit status 0 (successful).
+  INFO [38bed70e] Running /usr/bin/env echo "f5ec64f48f5db73a6220a87d44be5939262ae580" >> REVISION as deploy@165.227.145.161
+ DEBUG [38bed70e] Command: cd /var/www/sf-try/releases/20171206135625 && /usr/bin/env echo "f5ec64f48f5db73a6220a87d44be5939262ae580" >> REVISION
+  INFO [38bed70e] Finished in 0.396 seconds with exit status 0 (successful).
+  INFO [afe3d5d0] Running /usr/bin/env ln -s /var/www/sf-try/releases/20171206135625 /var/www/sf-try/releases/current as deploy@165.227.145.161
+ DEBUG [afe3d5d0] Command: /usr/bin/env ln -s /var/www/sf-try/releases/20171206135625 /var/www/sf-try/releases/current
+  INFO [afe3d5d0] Finished in 0.274 seconds with exit status 0 (successful).
+  INFO [5d41a9e2] Running /usr/bin/env mv /var/www/sf-try/releases/current /var/www/sf-try as deploy@165.227.145.161
+ DEBUG [5d41a9e2] Command: /usr/bin/env mv /var/www/sf-try/releases/current /var/www/sf-try
+  INFO [5d41a9e2] Finished in 0.152 seconds with exit status 0 (successful).
+ DEBUG [c81bb25c] Running /usr/bin/env ls -x /var/www/sf-try/releases as deploy@165.227.145.161
+ DEBUG [c81bb25c] Command: /usr/bin/env ls -x /var/www/sf-try/releases
+ DEBUG [c81bb25c] 	20171206135625
+ DEBUG [c81bb25c] Finished in 0.132 seconds with exit status 0 (successful).
+ DEBUG [1fff3d39] Running if test ! -d /var/www/sf-try/releases; then echo "Directory does not exist '/var/www/sf-try/releases'" 1>&2; false; fi as deploy@165.227.145.161
+ DEBUG [1fff3d39] Command: if test ! -d /var/www/sf-try/releases; then echo "Directory does not exist '/var/www/sf-try/releases'" 1>&2; false; fi
+ DEBUG [1fff3d39] Finished in 0.218 seconds with exit status 0 (successful).
+  INFO [d8559b88] Running /usr/bin/env echo "Branch master (at f5ec64f48f5db73a6220a87d44be5939262ae580) deployed as release 20171206135625 by damiennivault" >> /var/www/sf-try/revisions.log as deploy@165.227.145.161
+ DEBUG [d8559b88] Command: cd /var/www/sf-try/releases && /usr/bin/env echo "Branch master (at f5ec64f48f5db73a6220a87d44be5939262ae580) deployed as release 20171206135625 by damiennivault" >> /var/www/sf-try/revisions.log
+  INFO [d8559b88] Finished in 0.276 seconds with exit status 0 (successful).
